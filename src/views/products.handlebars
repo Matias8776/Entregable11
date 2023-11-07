@@ -1,0 +1,53 @@
+<h1>Bienvenido</h1>
+
+<section class='usuario'>
+  <div>
+    <p>Nombre: {{user.name}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Rol: {{user.role}}</p>
+  </div>
+  <div>
+    <a href='carts/{{cart}}'>Carrito</a>
+    <a href='api/sessions/logout'>Logout</a>
+  </div>
+</section>
+
+<section class='containerProducts'>
+  {{#each plainProducts}}
+    <a href='/products/{{this._id}}' class='product'>
+      <div>
+        <strong>Id:</strong>
+        {{this._id}}
+      </div>
+      <div>
+        <strong>Título:</strong>
+        {{this.title}}
+      </div>
+      <div>
+        <strong>Precio:</strong>
+        ${{this.price}}
+      </div>
+      <div>
+        <strong>Código:</strong>
+        {{this.code}}
+      </div>
+      <div>
+        <strong>Stock:</strong>
+        {{this.stock}}
+      </div>
+      <div>
+        <strong>Categoría:</strong>
+        {{this.category}}
+      </div>
+    </a>
+  {{/each}}
+</section>
+
+<div class='paginate'>
+  {{#if products.hasPrevPage}}
+    <a href='/products?page={{products.prevPage}}' id='prevPage' class='pageButton'>Anterior</a>
+  {{/if}}
+  {{#if products.hasNextPage}}
+    <a href='/products?page={{products.nextPage}}' id='nextPage' class='pageButton'>Siguiente</a>
+  {{/if}}
+</div>

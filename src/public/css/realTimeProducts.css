@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  height: 100%;
+}
+
+h1 {
+  color: #999999;
+  text-align: center;
+  margin: 20px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  color: #999999;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 250px;
+  margin: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: 1px solid #999999;
+  padding: 25px;
+  text-decoration: none;
+  color: #999999;
+  gap: 10px;
+}
+
+section {
+  display: flex;
+}
+
+.form {
+  width: 50%;
+}
+
+h2 {
+  color: #999999;
+  text-align: center;
+  margin: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  width: 50%;
+  color: #999999;
+}
+
+label {
+  text-align: center;
+}
+
+input {
+  margin-bottom: 10px;
+}
+
+#submitAdd {
+  width: 30%;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+#submitDel {
+  width: 30%;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+#thumbnails {
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+#id {
+  width: 60%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+#errorAdd {
+  text-align: center;
+}
+
+#errorDelete {
+  text-align: center;
+}
+
+p {
+  color: #999999;
+}
+
+a {
+  color: #999999;
+  text-decoration: none;
+  padding: 5px;
+}
+
+.usuario {
+  justify-content: space-between;
+  padding: 0 50px;
+}

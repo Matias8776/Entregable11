@@ -1,0 +1,65 @@
+<link
+  rel='stylesheet'
+  type='text/css'
+  href='https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css'
+/>
+
+<h1>{{plainProduct.title}}</h1>
+
+<section class='usuario'>
+  <div>
+    <p>Nombre: {{user.name}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Rol: {{user.role}}</p>
+  </div>
+  <div>
+    <a href='/products'>Productos</a>
+    <a href='/carts/{{cart}}'>Carrito</a>
+    <a href='/api/sessions/logout'>Logout</a>
+  </div>
+</section>
+
+<section class='containerProducts'>
+  <div class='product'>
+    <div>
+      <strong>Id:</strong>
+      {{plainProduct._id}}
+    </div>
+    <div>
+      <strong>Título:</strong>
+      {{plainProduct.title}}
+    </div>
+    <div>
+      <strong>Descripción:</strong>
+      {{plainProduct.description}}
+    </div>
+    <div>
+      <strong>Precio:</strong>
+      ${{plainProduct.price}}
+    </div>
+    <div>
+      <strong>Código:</strong>
+      {{plainProduct.code}}
+    </div>
+    <div>
+      <strong>Stock:</strong>
+      {{plainProduct.stock}}
+    </div>
+    <div>
+      <strong>Categoría:</strong>
+      {{plainProduct.category}}
+    </div>
+    <a
+      href=''
+      class='addButton'
+      data-cid='{{cart}}'
+      data-pid='{{plainProduct._id}}'
+    >Agregar al carrito</a>
+  </div>
+</section>
+
+<script
+  type='text/javascript'
+  src='https://cdn.jsdelivr.net/npm/toastify-js'
+></script>
+<script src='/static/js/product.js'></script>

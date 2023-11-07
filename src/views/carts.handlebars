@@ -1,0 +1,71 @@
+<link
+  rel='stylesheet'
+  type='text/css'
+  href='https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css'
+/>
+
+<h1>Carrito</h1>
+
+<section class='usuario'>
+  <div>
+    <p>Nombre: {{user.name}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Rol: {{user.role}}</p>
+  </div>
+  <div>
+    <a href='/products'>Productos</a>
+    <a href='/api/sessions/logout'>Logout</a>
+  </div>
+</section>
+
+<section class='containerProducts'>
+  {{#if plainProducts.length}}
+    {{#each plainProducts}}
+      <div class='product'>
+        <div>
+          <strong>Id:</strong>
+          {{this._id._id}}
+        </div>
+        <div>
+          <strong>Título:</strong>
+          {{this._id.title}}
+        </div>
+        <div>
+          <strong>Precio:</strong>
+          ${{this._id.price}}
+        </div>
+        <div>
+          <strong>Código:</strong>
+          {{this._id.code}}
+        </div>
+        <div>
+          <strong>Stock:</strong>
+          {{this._id.stock}}
+        </div>
+        <div>
+          <strong>Categoría:</strong>
+          {{this._id.category}}
+        </div>
+        <div>
+          <strong>Cantidad:</strong>
+          {{this.quantity}}
+        </div>
+        <a href='' class='deleteButton' data-pid='{{this._id._id}}'>Eliminar del
+          carrito</a>
+      </div>
+    {{/each}}
+  {{else}}
+    <strong>El carrito está vacío</strong>
+  {{/if}}
+</section>
+{{#if plainProducts.length}}
+  <button class='clearButton' data-cid='{{cart}}'>Vaciar carrito</button>
+  <button class='purchaseButton' data-cid='{{cart}}'>Finalizar compra</button>
+{{/if}}
+
+<div data-cart="{{cart}}"></div>
+<script
+  type='text/javascript'
+  src='https://cdn.jsdelivr.net/npm/toastify-js'
+></script>
+<script src='/static/js/carts.js'></script>

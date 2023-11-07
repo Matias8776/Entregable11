@@ -1,0 +1,56 @@
+<h1>Productos en tiempo real</h1>
+
+<section class='usuario'>
+  <div>
+    <p>Nombre: {{user.name}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Rol: {{user.role}}</p>
+  </div>
+  <div>
+    <a href='carts/{{cart}}'>Carrito</a>
+    <a href='api/sessions/logout'>Logout</a>
+  </div>
+</section>
+
+<ul id='productsList'></ul>
+
+<section>
+  <div class='form'>
+    <h2>Agregar producto</h2>
+
+    <form id='addForm'>
+      <label for='title'>Título:</label>
+      <input name='title' id='title' required />
+      <label for='description'>Descripción:</label>
+      <input name='description' id='description' required />
+      <label for='price'>Precio:</label>
+      <input name='price' id='price' type='number' step='any' required />
+      <label for='thumbnails'>Imágenes:</label>
+      <input type='file' name='thumbnails' id='thumbnails' multiple />
+      <label for='code'>Código:</label>
+      <input name='code' id='code' required />
+      <label for='stock'>Stock:</label>
+      <input name='stock' id='stock' type='number' required />
+      <label for='category'>Categoría:</label>
+      <input name='category' id='category' required />
+
+      <button type='submit' id='submitAdd'>Agregar producto</button>
+      <p id='errorAdd' style='color: red;'></p>
+    </form>
+  </div>
+
+  <div class='form'>
+    <h2>Eliminar un producto</h2>
+
+    <form id='deleteForm'>
+      <label for='id'>Id:</label>
+      <input name='id' id='id' />
+
+      <button type='submit' id='submitDel'>Eliminar producto</button>
+      <p id='errorDelete' style='color: red;'></p>
+    </form>
+  </div>
+</section>
+
+<script src='/socket.io/socket.io.js'></script>
+<script src='/static/js/index.js'></script>
