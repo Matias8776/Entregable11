@@ -1,4 +1,4 @@
-# Entregable 10
+# Entregable 11
 
 &nbsp;
 
@@ -6,10 +6,23 @@
 
 ###
 
-- git clone https://github.com/Matias8776/Entregable10.git
-- cd Entregable10
+- git clone https://github.com/Matias8776/Entregable11.git
+- cd Entregable11
 - npm i
 - npm start
+
+## Archivo .env:
+
+###
+
+- Persistencia: MONGO / FILE
+- LOGGER: DEV / PROD
+
+## Test Logger:
+
+###
+
+- http://localhost:8080/loggertest
 
 ## Mocking Products:
 

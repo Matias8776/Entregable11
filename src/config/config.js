@@ -15,5 +15,6 @@ export default {
   githubCallback: process.env.GITHUB_CALLBACK,
   email: process.env.EMAIL,
   emailPassword: process.env.EMAIL_PASSWORD,
-  persistence: process.env.PERSISTENCE
+  persistence: process.env.PERSISTENCE,
+  logger: process.env.LOGGER
 };

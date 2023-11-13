@@ -15,13 +15,16 @@ import initializePassport from './config/passport.js';
 import cookieParser from 'cookie-parser';
 import config from './config/config.js';
 import errorHandler from './middlewares/errors/index.js';
+import { addLogger, devLogger, prodLogger } from './services/log/logger.js';
 
 const messagesManager = new MessagesManager();
 
 const mongoURL = config.mongoUrl;
 const PORT = config.port;
+const logger = config.logger === 'DEV' ? devLogger : prodLogger;
 const app = express();
 
+app.use(addLogger);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('/static', express.static(path.join(__dirname, '/public')));
@@ -53,20 +56,29 @@ app.get('/mockingproducts', async (req, res) => {
   }
   res.send({ status: 'success', payload: products });
 });
+app.get('/loggertest', (req, res) => {
+  req.logger.fatal('Fatal desde el logger');
+  req.logger.error('Error desde el logger');
+  req.logger.warning('Warning desde el logger');
+  req.logger.info('Info desde el logger');
+  req.logger.http('Http desde el logger');
+  req.logger.debug('Debug desde el logger');
+  res.json('Mensaje de prueba desde el logger');
+});
 app.use('/', viewsRouter);
 
 app.use(errorHandler);
 
 const server = app.listen(PORT, () => {
-  console.log(`Servidor ON http://localhost:${PORT}`);
+  logger.info(`Servidor ON http://localhost:${PORT}`);
 });
 
 const io = new Server(server);
 
 io.on('connection', (socket) => {
-  console.log('Cliente conectado');
+  logger.debug('Cliente conectado');
   socket.on('disconnect', () => {
-    console.log('Cliente desconectado');
+    logger.debug('Cliente desconectado');
   });
 
   socket.emit('server:updatedProducts');
